@@ -14,10 +14,9 @@ Let's start by setting up our environment using Docker. We'll need to create a D
 ### Step 1: Create Docker Network
 Create a Docker network named `mongo-network`.
 
-```bash
 docker network create mongo-network
 
-Step 2: Start MongoDB
+### Step 2: Start MongoDB
 Run MongoDB container with authentication enabled.
 
 docker run -d -p 27017:27017 \
@@ -27,7 +26,7 @@ docker run -d -p 27017:27017 \
     --net mongo-network \
     mongo
 
-Step 3: Start Mongo Express
+### Step 3: Start Mongo Express
 Launch Mongo Express to manage MongoDB through a web interface.
 
 docker run -d -p 8081:8081 \
@@ -38,55 +37,58 @@ docker run -d -p 8081:8081 \
     -e ME_CONFIG_MONGODB_SERVER=mongodb \
     mongo-express
 
-Step 4: Open Mongo Express
+### Step 4: Open Mongo Express
 Visit http://localhost:8081 in your browser to access Mongo Express.
 
-Step 5: Create User-Account Database
+### Step 5: Create User-Account Database
 Using Mongo Express, create a database named "user-account" and a collection named "users".
 
-Step 6: Start Node.js Application Locally
+### Step 6: Start Node.js Application Locally
 Navigate to the app directory, install dependencies, and start the Node.js server.
 cd app
 npm install
 node server.js
 
-Step 7: Access the Application UI
+### Step 7: Access the Application UI
 Open http://localhost:3000 in your browser to interact with the app.
 
-Using Docker Compose
+## Using Docker Compose
 Alternatively, Docker Compose simplifies managing multi-container applications.
 
-Step 1: Start MongoDB and Mongo Express
+### Step 1: Start MongoDB and Mongo Express
 Start MongoDB and Mongo Express containers using Docker Compose.
 
 docker-compose up
 
-Step 2: Create Database and Collection
+### Step 2: Create Database and Collection
 Access Mongo Express at http://localhost:8080 to create a database and collection.
 
-Step 3: Start Node Server
+### Step 3: Start Node Server
 Navigate to the app directory, install dependencies, and start the Node.js server.
 
 cd app
 npm install
 node server.js
 
-Step 4: Access the Application
+### Step 4: Access the Application
 Visit http://localhost:3000 to use the application.
 
-Building and Deploying the Docker Image
+## Building and Deploying the Docker Image
 Once the app is ready, build and push it to a Docker repository for deployment.
 
-Step 1: Build Docker Image
+### Step 1: Build Docker Image
 Build the Docker image for the app.
 
 docker build -t (docker hub repo name) .
 
-Step 2: Push to Repository
+### Step 2: Push to Repository
 Log in to Docker Hub and push the image to a repository.
 
 docker login
 docker push <repository_name>
 
-Conclusion
+## Conclusion
 Dockerizing our user profile app streamlines development and deployment. It offers portability and scalability, allowing us to focus on building great applications. Experiment with Docker and unleash the full potential of containerized apps in your projects.
+
+## Blog Link
+[Blog Link](https://medium.com/@vekariyanishant1/building-and-deploying-a-dockerized-user-profile-app-ea21588ddc8b)
